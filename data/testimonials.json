@@ -1,0 +1,49 @@
+[
+ {
+  "id": "JalIcsCH0Qno1BZssoTT",
+  "message": "I recently joined a trek organized by Dulakkad around Jaipur, and the experience was excellent. The management was very well organized, and everything was handled with great punctuality. The team ensured that all activities ran smoothly without any delays. Their friendly and supportive nature made the entire trek even more enjoyable. Highly recommended for anyone looking for a well-managed trekking experience.",
+  "name": "Nikhil singh",
+  "createdAt": "2026-04-09T11:31:51.595Z",
+  "approved": true
+ },
+ {
+  "id": "K3sBjKauybtYJvcCnItA",
+  "rating": "5",
+  "name": "Manjeet Singh",
+  "createdAt": "2026-04-13T01:59:17.783Z",
+  "approved": true,
+  "message": "Big thanks to Rishab Pareek and the Dulakkad team for such a wonderful trekking experience. Their energy, planning, and care for everyone made the trip smooth and enjoyable. From start to finish, everything was well managed. Looking forward to more trips. Really enjoyed a lot. \nThanks again. "
+ },
+ {
+  "id": "Q2QJoYjknDCPbrp3sNwt",
+  "rating": "5",
+  "createdAt": "2026-04-13T17:30:23.778Z",
+  "name": "Akshat",
+  "approved": true,
+  "message": "Loved it !! \nNice folks , wonderful treks & joyous vibes with scenic views .\nBig thanks to Rishabh bhai & team."
+ },
+ {
+  "id": "cw4ESPzjx2rS3rSTGjwU",
+  "message": "Good experience. Enjoyed mountains etc.",
+  "name": "Aman Sharma ",
+  "approved": true,
+  "createdAt": "2026-04-10T17:25:38.812Z",
+  "rating": "5"
+ },
+ {
+  "id": "rq2Ub8gOEKgcjlc54EWP",
+  "name": "Jagriti Parihar",
+  "message": "Had an amazing experience trekking to Mount Sumel with the Dulakkad team! Everything was very well organized — from planning and coordination to safety and overall management. The team was supportive, friendly, and made sure everyone felt comfortable. Looking forward to joining many more treks with Dulakkad! 😊",
+  "approved": true,
+  "createdAt": "2026-04-11T11:03:15.116Z",
+  "rating": "5"
+ },
+ {
+  "id": "uAw3D4gTeUKkt8NHdL0K",
+  "rating": "5",
+  "name": "Monika Maheshwari ",
+  "message": "“Sunrise, mountains, and the perfect vibe! 🌄\nBig thanks to Rishab for such a well-guided trek. From start to summit—everything was well managed. And that coffee & Maggi at the top? Just wow!” at Mount Summel",
+  "createdAt": "2026-04-11T08:26:09.095Z",
+  "approved": true
+ }
+]

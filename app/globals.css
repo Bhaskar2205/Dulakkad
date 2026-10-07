@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0b0919;
+  --color-ink: #120e26;
+  --color-dusk: #1d1638;
+  --color-plum: #3a2650;
+  --color-rose: #e2607f;
+  --color-dawn: #f58a66;
+  --color-saffron: #ffb85c;
+  --color-cream: #f7ecdd;
+  --color-mist: #b9aecb;
+  --color-glacier: #4cc3e0;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+
+  --ease-trail: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-drift: drift 9s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 2.4s ease-in-out infinite;
+  --animate-spin-slow: spin 24s linear infinite;
+  --animate-shimmer: shimmer 3.5s linear infinite;
+  --animate-dock-in: dock-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s backwards;
+
+  @keyframes dock-in {
+    from {
+      transform: translateY(130%);
+    }
+  }
+
+  @keyframes shimmer {
+    to {
+      background-position: -200% 50%;
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes drift {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate3d(14px, -38px, 0);
+      opacity: 0.9;
+    }
+  }
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.45;
+      transform: scale(0.8);
+    }
+  }
+}
+
+html {
+  background: var(--color-night);
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-night);
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Elements that animate in from the side or sit rotated may poke past the
+ * screen edge. Clipping here (not on body, whose overflow is handed to the
+ * viewport) stops phones from widening the page to fit them.
+ */
+main,
+footer {
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-saffron);
+  color: var(--color-night);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-saffron);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .eyebrow {
+    @apply text-[0.7rem] font-medium tracking-[0.32em] text-saffron uppercase;
+  }
+  .display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+    line-height: 0.98;
+  }
+  .text-sunrise {
+    background: linear-gradient(100deg, var(--color-saffron), var(--color-dawn) 45%, var(--color-rose));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .card {
+    @apply rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm;
+  }
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-medium tracking-wide transition-colors duration-300;
+  }
+  .btn-sun {
+    @apply bg-saffron text-night hover:bg-cream;
+  }
+  .btn-ghost {
+    @apply border border-white/25 text-cream hover:border-saffron hover:text-saffron;
+  }
+}
+
+/* Film grain over everything, so gradients never band. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Pink City Blog credit: a band of light keeps sweeping across pink lettering. */
+.text-pink-city {
+  background: linear-gradient(100deg, #ff4f9a 0%, #ff4f9a 35%, #ffd6e8 50%, #ff4f9a 65%, #ff4f9a 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Phones: drop the effects that cost the most per scrolled frame. */
+@media (pointer: coarse) {
+  .grain {
+    display: none;
+  }
+  .card {
+    backdrop-filter: none;
+    background: rgb(255 255 255 / 0.055);
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
