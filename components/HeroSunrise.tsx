@@ -176,7 +176,7 @@ export default function HeroSunrise() {
           </div>
         </motion.div>
 
-        <motion.div style={{ opacity: hint }} className="absolute inset-x-0 bottom-28 flex flex-col items-center gap-3 text-cream/75 md:bottom-7">
+        <motion.div style={{ opacity: hint }} className="absolute inset-x-0 bottom-28 flex flex-col items-center gap-3 text-cream/75 lg:bottom-7">
           <span className="text-[0.7rem] tracking-[0.3em] uppercase">Scroll to bring the sun up</span>
           <span className="relative h-10 w-px overflow-hidden bg-white/20">
             <motion.span

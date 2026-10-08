@@ -15,6 +15,7 @@ export const nav = [
   { href: "/about", label: "About Us" },
   { href: "/treks", label: "Our Next Treks" },
   { href: "/packages", label: "Packages" },
+  { href: "/virtual-trek", label: "Feel Trek Virtually" },
 ];
 
 export function whatsapp(text: string) {

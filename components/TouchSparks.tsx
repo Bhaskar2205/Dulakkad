@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 type Spark = { x: number; y: number; vx: number; vy: number; life: number; size: number; color: string; spin: number };
@@ -12,6 +13,10 @@ const colors = ["#ffb85c", "#f58a66", "#e2607f", "#f7ecdd", "#ff4f9a"];
  */
 export default function TouchSparks() {
   const ref = useRef<HTMLCanvasElement>(null);
+  // On the virtual trek a swipe is already driving a full-screen film, so only taps sparkle there.
+  const pathname = usePathname();
+  const trail = useRef(true);
+  trail.current = pathname !== "/virtual-trek";
 
   useEffect(() => {
     const canvas = ref.current;
@@ -60,6 +65,7 @@ export default function TouchSparks() {
         star(s);
       }
       frame = sparks.length ? requestAnimationFrame(loop) : 0;
+      if (!frame) canvas.style.display = "none";
     };
 
     const emit = (x: number, y: number, count: number, force: number) => {
@@ -77,13 +83,16 @@ export default function TouchSparks() {
           spin: Math.random() - 0.5,
         });
       }
-      if (!frame) frame = requestAnimationFrame(loop);
+      if (!frame) {
+        canvas.style.display = "block";
+        frame = requestAnimationFrame(loop);
+      }
     };
 
     const onStart = (e: TouchEvent) => emit(e.touches[0].clientX, e.touches[0].clientY, 9, 3.2);
     const onMove = (e: TouchEvent) => {
       const now = performance.now();
-      if (now - last < 45) return;
+      if (!trail.current || now - last < 45) return;
       last = now;
       emit(e.touches[0].clientX, e.touches[0].clientY, 1, 1.1);
     };
@@ -100,5 +109,5 @@ export default function TouchSparks() {
     };
   }, []);
 
-  return <canvas ref={ref} aria-hidden className="pointer-events-none fixed inset-0 z-[75] size-full" />;
+  return <canvas ref={ref} aria-hidden style={{ display: "none" }} className="pointer-events-none fixed inset-0 z-[75] size-full" />;
 }

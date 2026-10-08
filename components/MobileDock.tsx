@@ -20,9 +20,15 @@ const icons: Record<string, React.ReactNode> = {
       <path d="M9 14h6" />
     </>
   ),
+  "/virtual-trek": (
+    <>
+      <rect x="3.500" y="5" width="17" height="14" rx="3.500" />
+      <path d="m10.500 9.500 4 2.500-4 2.500v-5Z" />
+    </>
+  ),
 };
 
-const short: Record<string, string> = { "/": "Home", "/about": "About", "/treks": "Treks", "/packages": "Packages" };
+const short: Record<string, string> = { "/": "Home", "/about": "About", "/treks": "Treks", "/packages": "Packages", "/virtual-trek": "Virtual" };
 
 /** App-style navigation for phones: always under the thumb. */
 export default function MobileDock() {
@@ -30,8 +36,8 @@ export default function MobileDock() {
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
-    <nav aria-label="Primary" className="fixed inset-x-0 bottom-0 z-50 animate-dock-in px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
-      <ul className="mx-auto flex max-w-sm items-stretch justify-between rounded-[1.75rem] border border-white/10 bg-night/85 p-1.5 shadow-[0_-8px_40px_rgba(226,96,127,0.25)] backdrop-blur-xl">
+    <nav aria-label="Primary" className="fixed inset-x-0 bottom-0 z-50 animate-dock-in px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden">
+      <ul className="mx-auto flex max-w-sm items-stretch justify-between rounded-[1.75rem] border border-white/10 bg-night/90 p-1.5 shadow-[0_-8px_40px_rgba(226,96,127,0.25)]">
         {nav.map((item) => {
           const active = isActive(item.href);
           return (
@@ -40,7 +46,7 @@ export default function MobileDock() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 onClick={() => navigator.vibrate?.(8)}
-                className={`relative flex h-14 flex-col items-center justify-center gap-1 rounded-[1.4rem] text-[0.65rem] font-medium tracking-wide transition-colors ${
+                className={`relative flex h-14 flex-col items-center justify-center gap-1 rounded-[1.4rem] text-[0.6rem] font-medium tracking-wide transition-colors ${
                   active ? "text-night" : "text-cream/70"
                 }`}
               >

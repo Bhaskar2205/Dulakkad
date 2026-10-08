@@ -33,8 +33,8 @@ export default function Nav() {
       <motion.header className="fixed inset-x-0 top-0 z-50" animate={{ y: hidden ? "-110%" : 0 }} transition={{ duration: 0.5, ease }}>
         <div className="shell pt-3 sm:pt-4">
           <div
-            className={`flex h-14 items-center justify-between rounded-full pr-[3.75rem] pl-4 transition-all duration-500 sm:pl-6 md:pr-2 ${
-              solid ? "border border-white/10 bg-night/75 shadow-2xl shadow-black/30 md:backdrop-blur-xl" : "border border-transparent"
+            className={`flex h-14 items-center justify-between rounded-full pr-[3.75rem] pl-4 transition-all duration-500 sm:pl-6 lg:pr-2 ${
+              solid ? "border border-white/10 bg-night/75 shadow-2xl shadow-black/30 lg:backdrop-blur-xl" : "border border-transparent"
             }`}
           >
             <Link href="/" className="flex items-center gap-2 text-cream" aria-label={`${site.name} home`}>
@@ -43,7 +43,7 @@ export default function Nav() {
             </Link>
 
             {/* Phones get the sidebar (SideMenu) and the dock at the bottom of the screen instead. */}
-            <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+            <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
               {nav.map((item) => (
                 <Link
                   key={item.href}

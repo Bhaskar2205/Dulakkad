@@ -46,7 +46,7 @@ export default function Footer() {
         <Credit />
       </div>
 
-      <div className="shell flex flex-col gap-2 border-t border-white/10 pt-6 pb-28 text-sm text-mist sm:flex-row sm:justify-between md:pb-6">
+      <div className="shell flex flex-col gap-2 border-t border-white/10 pt-6 pb-28 text-sm text-mist sm:flex-row sm:justify-between lg:pb-6">
         <span>© {new Date().getFullYear()} {site.name}.</span>
         <span>{site.tagline}</span>
       </div>

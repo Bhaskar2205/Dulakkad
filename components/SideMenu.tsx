@@ -35,7 +35,7 @@ export default function SideMenu() {
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
@@ -101,10 +101,10 @@ export default function SideMenu() {
                       <Link
                         href={item.href}
                         aria-current={active ? "page" : undefined}
-                        className={`flex items-center gap-4 rounded-2xl px-3 py-3.5 active:bg-white/10 ${active ? "bg-white/[0.07]" : ""}`}
+                        className={`flex items-center gap-3 rounded-2xl px-3 py-3.5 active:bg-white/10 ${active ? "bg-white/[0.07]" : ""}`}
                       >
                         <span className="display w-6 text-sm text-mist">{String(i + 1).padStart(2, "0")}</span>
-                        <span className={`display text-[1.7rem] leading-none font-semibold whitespace-nowrap ${active ? "text-sunrise italic" : "text-cream"}`}>{item.label}</span>
+                        <span className={`display text-[1.45rem] leading-none font-semibold whitespace-nowrap ${active ? "text-sunrise italic" : "text-cream"}`}>{item.label}</span>
                         <Arrow className={`ml-auto size-5 ${active ? "text-saffron" : "text-cream/40"}`} />
                       </Link>
                     </motion.div>

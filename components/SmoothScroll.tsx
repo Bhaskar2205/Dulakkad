@@ -12,7 +12,7 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     // Touch devices keep native momentum scrolling; Lenis only smooths wheel input.
-    const instance = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9 });
+    const instance = new Lenis({ lerp: 0.075, wheelMultiplier: 0.85 });
     lenis.current = instance;
     let frame = requestAnimationFrame(function raf(time) {
       instance.raf(time);
